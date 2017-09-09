@@ -3,7 +3,7 @@ import {
     Route,
     Link
   } from 'react-router-dom';
-import {Product} from './product.js'
+import {ProductCard} from './productCard.js'
 import { ProductFilter } from '../containers/productFilter.js';
 
 export class ProductsList extends Component {
@@ -11,7 +11,7 @@ export class ProductsList extends Component {
         return (
             <div class="main-body text-center">
                 <ProductFilter />
-                <Product />
+                <ProductCard />
             </div>
         );
     }

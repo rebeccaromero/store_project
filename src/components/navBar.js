@@ -8,11 +8,11 @@ export class NavBar extends Component {
     render() {
         return (
             <div>
-                <Link to ='/'>HOME</Link>
-                <Link to ='/about'>About Us</Link>
-                <Link to ='/products'>Products</Link>
-                <Link to ='/products/sale'>Sale</Link>
-                <Link to ='/contact'>Contact Us</Link>
+                <Link to ='/shop'>HOME</Link>
+                <Link to ='/shop/about'>About Us</Link>
+                <Link to ='/shop/products'>Products</Link>
+                <Link to ='/shop/products/sale'>Sale</Link>
+                <Link to ='/shop/contact'>Contact Us</Link>
             </div>
         );
     }

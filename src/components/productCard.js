@@ -4,7 +4,7 @@ import {
     Link
   } from 'react-router-dom';
 
-export class Product extends Component {
+export class ProductCard extends Component {
     render() {
         return (
             <div className="main-body text-center">

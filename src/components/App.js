@@ -4,26 +4,19 @@ import {
   Route,
   Link
 } from 'react-router-dom';
-import {Header} from './header.js';
-import {Footer} from './footer.js';
-import {HomePage} from './homePage.js';
-import {ProductsList} from './productsList.js';
-import {CartPage} from './cartPage.js';
-import {AboutPage} from './aboutPage.js';
+import {WelcomePage} from './welcomePage.js';
+// import {AdminMain} from './adminMain.js';
+import {ShopMain} from './shopMain.js';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header />
         <switch>
-          <Route exact path="/" component={HomePage}></Route>
-          <Route exact path="/about" component={AboutPage}></Route>
-          <Route exact path="/products" component={ProductsList}></Route>
-          <Route exact path="/products/sale" component={ProductsList}></Route>
-          <Route exact path="/cart" component={CartPage}></Route>
+          {/* <Route exact path="/admin" component={AdminMain}></Route> */}
+          <Route exact path="/" component={WelcomePage}></Route>
+          <Route path="/shop" component={ShopMain}></Route>
         </switch>
-        <Footer />
       </div>
     );
   }

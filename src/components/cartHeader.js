@@ -12,7 +12,7 @@ export class CartHeader extends Component {
                 <Link to ='/account'>Account Details</Link>  
                 {/* <!--link account setting and add logic for cart and link to cart page!--> */}
                 <div class="cart">
-                    <span className="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span><Link to ='/cart'>Cart: PLACEHOLDER ITEM TOTAL</Link> 
+                    <span className="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span><Link to ='/shop/cart'>Cart: PLACEHOLDER ITEM TOTAL</Link> 
                 </div>
                 <button>Logout</button>
             </div>
