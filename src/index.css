@@ -3,3 +3,15 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+th {
+  padding: 20px;
+}
+
+td {
+  padding: 20px;
+}
+
+.manage-link {
+  margin: 10px;
+}
