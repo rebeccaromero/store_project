@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import {
-  Route,
-  Link
-} from 'react-router-dom';
-import {Header} from './header.js';
-import {Footer} from './footer.js';
-import {HomePage} from './homePage.js';
-import {ProductsList} from './productsList.js';
-import {CartPage} from './cartPage.js';
-import {AboutPage} from './aboutPage.js';
+import { Route } from 'react-router-dom';
+import { Header } from './header.js';
+import { Footer } from './footer.js';
+import { HomePage } from './homePage.js';
+import { ProductsList } from './productsList.js';
+import { CartPage } from './cartPage.js';
+import { AboutPage } from './aboutPage.js';
+import Register from '../containers/register.js';
 
 export class ShopMain extends Component {
   render() {
@@ -21,6 +19,7 @@ export class ShopMain extends Component {
           <Route exact path="/shop/products" component={ProductsList}></Route>
           <Route exact path="/shop/products/sale" component={ProductsList}></Route>
           <Route exact path="/shop/cart" component={CartPage}></Route>
+          <Route exact path="/shop/register" component={Register}></Route>
         </switch>
         <Footer />
       </div>

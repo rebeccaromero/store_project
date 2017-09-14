@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
-// import '../App.css';
-import {
-  Route,
-  Link
-} from 'react-router-dom';
-import {WelcomePage} from './welcomePage.js';
+import '../App.css';
+import { Route } from 'react-router-dom';
+import { WelcomePage } from './welcomePage.js';
 // import {AdminMain} from './adminMain.js';
-import {ShopMain} from './shopMain.js';
+import { ShopMain } from './shopMain.js';
 
 class App extends Component {
   render() {

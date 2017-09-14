@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import {
-    Route,
-    Link
-  } from 'react-router-dom';
+// import {
+//     Route,
+//     Link
+//   } from 'react-router-dom';
 
 export class HomePage extends Component {
     render() {
