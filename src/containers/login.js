@@ -3,8 +3,8 @@ import React, {Component} from 'react';
 export class Login extends Component {
     render() {
         return (
-            <div>
-                <form className="form-inline" action="{% url 'login_submit' %}" method='post'>
+            <div className="login">
+                <form className="form-inline">
                     <div className="form-group">
                         <label htmlFor="">Email:</label>
                         <input className="form-control" type="text" name='email' />

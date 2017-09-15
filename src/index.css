@@ -4,3 +4,39 @@ body {
   font-family: sans-serif;
 }
 
+.login {
+  float: right;
+}
+
+.welcome-page h1 {
+  position: absolute;
+  top: 150px;
+  left: 60px;
+  color: #73264d;
+  font-size: 50pt;
+  text-shadow: 3px 3px lightgrey;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.welcome-page p, .welcome-page a {
+  font-size: 30pt;
+}
+
+.nav-bar {
+  width: 100%;
+  background-color: #73264d;
+}
+
+.nav-bar a {
+  font-size: 20pt;
+  color: white;
+  padding: 0 33px;
+}
+
+.register-link {
+  font-size: 15pt;
+  display: block;
+  text-align: right;
+
+}

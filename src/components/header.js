@@ -11,7 +11,7 @@ export class Header extends Component {
                 <h1>Cool Cat Socks</h1>
                 <NavBar />
                 <Login />
-                <Link to ='/shop/register'>Register</Link>
+                <Link to ='/shop/register' className="register-link">Register</Link>
                 <CartHeader />
             </div>
         );
