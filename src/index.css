@@ -4,6 +4,7 @@ body {
   font-family: sans-serif;
 }
 
+<<<<<<< HEAD
 .login {
   float: right;
 }
@@ -39,4 +40,16 @@ body {
   display: block;
   text-align: right;
 
+=======
+th {
+  padding: 20px;
+}
+
+td {
+  padding: 20px;
+}
+
+.manage-link {
+  margin: 10px;
+>>>>>>> 1d7467d5420acf8b0178ccac4f60059e3350a392
 }

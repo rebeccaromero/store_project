@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Field, reduxForm } from 'redux-form';
 // import {PwField} from '../components/passwordField.js';
-import {TextField} from '../components/textField.js';
+// import {TextField} from '../components/textField.js';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { connect } from 'react-redux';
 // import { createPost } from '../actions';
