@@ -23,7 +23,7 @@ export class ProductFilter extends Component {
                     <input type="radio" name="sock_price" value="sale" /> SALE
                     <p>View:</p>
                     <input type="radio" name="pairs" value="pairs" /> Pairs
-                    <input type="radio" name="bundles" value="bundles" /> Bundles
+                    <input type="radio" name="bundles" value="bundles" /> Bundles <br />
                     <input type="submit" value="FILTER" />
                 </form>
             </div>
