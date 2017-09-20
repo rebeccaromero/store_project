@@ -21,7 +21,9 @@ export class Login extends Component {
             email: "",
             password: ""
         });
-        this.props.submitAdminData(email, password);
+        if (e.target.type.value === 'admin') {
+            this.props.submitAdminData(email, password);
+        }
     }
 
     handleEmail(e) {
