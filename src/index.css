@@ -4,7 +4,6 @@ body {
   font-family: sans-serif;
 }
 
-<<<<<<< HEAD
 .login {
   float: right;
 }
@@ -24,6 +23,10 @@ body {
   font-size: 30pt;
 }
 
+.store-name {
+  font-size: 30pt;
+}
+
 .nav-bar {
   width: 100%;
   background-color: #73264d;
@@ -37,10 +40,9 @@ body {
 
 .register-link {
   font-size: 15pt;
-  display: block;
   text-align: right;
+}
 
-=======
 th {
   padding: 20px;
 }
@@ -51,5 +53,4 @@ td {
 
 .manage-link {
   margin: 10px;
->>>>>>> 1d7467d5420acf8b0178ccac4f60059e3350a392
 }

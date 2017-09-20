@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 
+
 export class Login extends Component {
     constructor(props) {
         super(props);
@@ -21,7 +22,12 @@ export class Login extends Component {
             email: "",
             password: ""
         });
-        this.props.submitAdminData(email, password);
+        if (e.target.type.value === 'admin'){
+            this.props.submitAdminData(email, password);
+        }
+        if (e.target.type.value === 'user'){
+            this.props.validateLogin(email, password);
+        }
     }
 
     handleEmail(e) {
@@ -34,14 +40,9 @@ export class Login extends Component {
 
     render() {
         return (
-<<<<<<< HEAD
-            <div className="login">
-                <form className="form-inline">
-=======
             <div>
                 <form className="form-inline" onSubmit={this.handleSubmit}>
                     <input type="hidden" name="type" value={this.props.type} />
->>>>>>> 1d7467d5420acf8b0178ccac4f60059e3350a392
                     <div className="form-group">
                         <label htmlFor="">Email:</label>
                         <input className="form-control" type="text" name='email' value={this.state.email} onChange={this.handleEmail}/>
@@ -54,6 +55,7 @@ export class Login extends Component {
                         <input type="submit" value='Login' />
                     </div>
                 </form>
+                <p>{this.props.errors}</p>
             </div>
         );
     }

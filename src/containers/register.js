@@ -2,11 +2,15 @@ import React, {Component} from 'react';
 import { Field, reduxForm } from 'redux-form';
 // import {PwField} from '../components/passwordField.js';
 // import {TextField} from '../components/textField.js';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { connect } from 'react-redux';
-// import { createPost } from '../actions';
+import { createUser } from '../actions';
 
 class Register extends Component {
+    constructor(props) {
+        super(props);
+        this.onSubmit = this.onSubmit.bind(this);
+      }
     renderField(field) {
         const {meta: {touched, error} } = field;
         const className = `form-group ${ touched && error ? 'has-danger' : '' }`;
@@ -15,8 +19,8 @@ class Register extends Component {
             <div className={className}>
                 <label>{field.label}</label>
                 <input
-                    type="text"
                     className="form-control"
+                    type="text"
                     {...field.input}
                 />
                 <div className="text-help" style={{color: "red"}}>
@@ -26,15 +30,31 @@ class Register extends Component {
         );
     }
 
-    onSubmit(values) {
-        console.log(values);
-        this.props.createUser(values, () => {
+    onSubmit(e) {
+        let formValues = {
+            first_name: e.target.first_name.value,
+            last_name: e.target.last_name.value,
+            email: e.target.email.value,
+            phone_num: e.target.phone_num.value,
+            password: e.target.password.value,
+            pw_confirmation: e.target.pw_confirmation.value,
+            ship_name: e.target.ship_name.value,
+            address: e.target.address.value,
+            address2: e.target.address2.value,
+            city: e.target.city.value,
+            state: e.target.state.value,
+            zip_code: e.target.zip_code.value
+        }
+        e.preventDefault();
+        console.log(formValues);
+        console.log(this.props);
+        this.props.registerUser(formValues, () => {
           this.props.history.push('/shop');
         });
-      }
+    }
     
     render() {
-        const { handleSubmit } = this.props;
+        // const { createUser } = this.props;
 
         return (
             <div>
@@ -43,7 +63,7 @@ class Register extends Component {
                 </div>
                 <div className="user-info">
                     <h3>User Information</h3>
-                    <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+                    <form onSubmit={this.onSubmit}>
                         <Field
                             label="First Name: "
                             name="first_name"
@@ -169,52 +189,51 @@ class Register extends Component {
 
 
 function validate(values) {
-const errors = {};
-    
-    if (!values.first_name) {
-      errors.first_name = "Please enter a first name";
-    }
-    if (!values.last_name) {
-      errors.last_name = "Please enter a last name";
-    }
-    if (!values.email) {
-        errors.email = "Please enter an email";
-    }
-    if (values.email) {
-        console.log('checking email')
-        if (!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(values.email)) {
-            console.log('bad email')
-            errors.email = "Please enter a valid email";
+    const errors = {};
+        
+        if (!values.first_name) {
+        errors.first_name = "Please enter a first name";
         }
+        if (!values.last_name) {
+        errors.last_name = "Please enter a last name";
+        }
+        if (!values.email) {
+            errors.email = "Please enter an email";
+        }
+        if (values.email) {
+            console.log('checking email')
+            if (!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(values.email)) {
+                console.log('bad email')
+                errors.email = "Please enter a valid email";
+            }
+        }
+        if (!values.phone_num) {
+        errors.phone_num = "Please enter a phone number";
+        }
+        if (!values.password) {
+        errors.password = "Please enter a password";
+        }
+        if (!values.pw_confirmation) {
+        errors.pw_confirmation = "Please confirm your password";
+        }
+        if (!values.ship_name) {
+        errors.ship_name = "Please enter name for shipping";
+        }
+        if (!values.address) {
+        errors.address = "Please enter a street address";
+        }
+        if (!values.city) {
+        errors.city = "Please enter a city";
+        }
+        if (!values.zip_code) {
+        errors.zip_code = "Please enter a zip code";
+        }
+        return errors;
     }
-    if (!values.phone_num) {
-      errors.phone_num = "Please enter a phone number";
-    }
-    if (!values.password) {
-      errors.password = "Please enter a password";
-    }
-    if (!values.pw_confirmation) {
-      errors.pw_confirmation = "Please confirm your password";
-    }
-    if (!values.ship_name) {
-      errors.ship_name = "Please enter name for shipping";
-    }
-    if (!values.address) {
-      errors.address = "Please enter a street address";
-    }
-    if (!values.city) {
-      errors.city = "Please enter a city";
-    }
-    if (!values.zip_code) {
-      errors.zip_code = "Please enter a zip code";
-    }
-  
-    return errors;
-  }
 
 export default reduxForm({
     validate,
     form: 'RegistersNewUser'
 })(
-    connect(null, {})(Register)
+    connect(null, {createUser})(Register)
 );

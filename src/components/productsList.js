@@ -1,14 +1,39 @@
 import React, {Component} from 'react';
-import {ProductCard} from './productCard.js'
+import { ProductCard } from './productCard.js'
 import { ProductFilter } from '../containers/productFilter.js';
+import _ from 'lodash';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { fetchProducts } from '../actions';
 
-export class ProductsList extends Component {
+class ProductsList extends Component {
+    componentDidMount() {
+        this.props.fetchProducts()
+            .then(() => {
+                console.log(this.props.products);
+            })
+    }
+
+    renderProducts() {
+        return _.map(this.props.products, product => {
+          return (
+            <ProductCard product={product}/>
+          )
+        })
+      }
+
     render() {
         return (
-            <div class="main-body text-center">
+            <div className="main-body">
                 <ProductFilter />
-                <ProductCard />
+                {this.renderProducts()}
             </div>
         );
     }
 }
+
+function mapStateToProps(state) {
+    return { products: state.products }
+  }
+  
+  export default connect(mapStateToProps, { fetchProducts })(ProductsList)

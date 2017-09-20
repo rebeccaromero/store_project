@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 export class ProductFilter extends Component {
     render(){
         return (
-            <div class="shop-by">
+            <div className="shop-by">
                 <form>
                     <p>Shop Products by Department:</p>
                     <input type="radio" name="sock_category" value="womens" /> Womens
