@@ -43,6 +43,10 @@ body {
   text-align: right;
 }
 
+.cart-header {
+  margin: 10px;
+}
+
 th {
   padding: 20px;
 }

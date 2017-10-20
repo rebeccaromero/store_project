@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Login } from '../containers/login.js';
-import { CartHeader } from '../components/cartHeader.js';
+import CartHeader from '../components/cartHeader.js';
 import { Link } from 'react-router-dom'
 import axios from 'axios';
 import { connect } from 'react-redux';
-import {loginUser, logout} from '../actions';
-import {statuses} from '../actions';
+import { loginUser } from '../actions';
+import { statuses } from '../actions';
 
 class UserSection extends Component {
     constructor(props) {
@@ -17,8 +17,6 @@ class UserSection extends Component {
     }
 
     validateLogin(email, password){
-        console.log('*checking if user exists and password matches');
-        console.log(email, password);
         axios.request({
         method: 'post',
         url: 'http://localhost:8000/login_user',
@@ -43,6 +41,7 @@ class UserSection extends Component {
                     console.log('*********');
                     console.log(this.props);
                     this.props.loginUser(email);
+                    console.log(email)
                     this.setState({error: ''})
                 }
             })
@@ -54,8 +53,8 @@ class UserSection extends Component {
         if (this.props.status.status === 'LOGGED_IN' ) {
             console.log('User logged in');
             return (
-                <div>
-                    <CartHeader logout={this.props.logout}/>
+                <div className="cart-header">
+                    <CartHeader />
                 </div>
             )
         }
@@ -71,7 +70,10 @@ class UserSection extends Component {
 }
 
 function mapStateToProps(state) {
-    return { status: state.status };
+    return { 
+        status: state.status, 
+        user: ''
+    };
   }
   
-export default connect(mapStateToProps, {loginUser, logout})(UserSection);
+export default connect(mapStateToProps, {loginUser})(UserSection);

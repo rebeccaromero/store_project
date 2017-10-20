@@ -3,7 +3,6 @@ import { ProductCard } from './productCard.js'
 import { ProductFilter } from '../containers/productFilter.js';
 import _ from 'lodash';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { fetchProducts } from '../actions';
 
 class ProductsList extends Component {
@@ -17,7 +16,7 @@ class ProductsList extends Component {
     renderProducts() {
         return _.map(this.props.products, product => {
           return (
-            <ProductCard product={product}/>
+            <ProductCard product={product} key={product.pk}/>
           )
         })
       }

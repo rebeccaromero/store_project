@@ -1,37 +1,53 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import {logout} from '../actions';
-import {statuses} from '../actions';
+import { fetchUser, logout } from '../actions';
 
-export class CartHeader extends Component {
+class CartHeader extends Component {
     constructor(props){
         super(props);
-        this.state = {
-            logged_in: true
-        }
         this.handleClick = this.handleClick.bind(this);
+    }
+
+    componentDidMount() {
+        console.log('this.props.email: ' + this.props.email);
+        console.log(this.props.email.email);
+        this.props.fetchUser(this.props.email.email)
+          .then(() => {
+            console.log('********HOOT********')
+            console.log(this.props.user);
+          })
     }
 
     handleClick(){
         console.log('Attempting Logout');
         this.props.logout();
-        this.setState({
-            logged_in: false
-        })
+        console.log(this.props.status)
     }
 
     render() {
         return (
             <div className="user-cart text-right">
-                <p>logged in as: PLACEHOLDER USERNAME</p>
+                <p>logged in as: {this.props.user.first_name}</p>
                 <Link to ='/shop/account'>Account Details</Link>  
                 {/* <!--link account setting and add logic for cart and link to cart page!--> */}
                 <div className="cart">
-                    <span className="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span><Link to ='/shop/cart'>Cart: PLACEHOLDER ITEM TOTAL</Link> 
+                    <span className="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span><Link to ='/shop/cart'>Cart: {this.props.cartQuantity} items</Link> 
                 </div>
                 <button onClick={this.handleClick}>Logout</button>
             </div>
         );
     }
 }
+
+function mapStateToProps(state) {
+    return { 
+        email: state.email,
+        status: state.status,
+        user: state.user,
+        cartQuantity: state.cart.cartQuantity
+    };
+}
+  
+export default connect(mapStateToProps, { fetchUser,logout })(CartHeader);
+

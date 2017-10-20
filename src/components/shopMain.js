@@ -4,9 +4,9 @@ import { Header } from './header.js';
 import { Footer } from './footer.js';
 import { HomePage } from './homePage.js';
 import ProductsList from './productsList.js';
-import { CartPage } from './cartPage.js';
+import CartPage from './cartPage.js';
 import { AboutPage } from './aboutPage.js';
-import { AccountDetails } from './accountDetails.js';
+import AccountDetails from './accountDetails.js';
 import Register from '../containers/register.js';
 
 export class ShopMain extends Component {
@@ -22,7 +22,7 @@ export class ShopMain extends Component {
 
   render() {
     return (
-      <div className="shopMain">
+      <div>
         <Header />
         <switch>
           <Route exact path="/shop" component={HomePage}></Route>
